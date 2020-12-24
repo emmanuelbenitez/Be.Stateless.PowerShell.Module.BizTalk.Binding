@@ -1,0 +1,44 @@
+﻿#region Copyright & License
+
+// Copyright © 2012 - 2020 François Chabot
+// 
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+// 
+// http://www.apache.org/licenses/LICENSE-2.0
+// 
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+#endregion
+
+using System.Diagnostics.CodeAnalysis;
+using System.Management.Automation;
+using Be.Stateless.BizTalk.Install.Command;
+
+namespace Be.Stateless.BizTalk.Binding.CmdLets
+{
+    [Cmdlet(VerbsData.Expand, "ApplicationBinding")]
+    public class ExpandApplicationBinding : ApplicationBindingCmdletBase
+    {
+        public ExpandApplicationBinding() : base(true) { }
+
+        #region Base Class Member Overrides
+
+        protected override ApplicationBindingGenerationCommand CreateApplicationBindingGenerationCommand()
+        {
+            return new ApplicationBindingGenerationCommand { OutputFilePath = OutputFilePath };
+        }
+
+        #endregion
+
+        [Parameter(Mandatory = true)]
+        [ValidateNotNullOrEmpty]
+        [SuppressMessage("ReSharper", "MemberCanBePrivate.Global", Justification = "CmdLet parameter")]
+        public string OutputFilePath { get; set; }
+    }
+}
