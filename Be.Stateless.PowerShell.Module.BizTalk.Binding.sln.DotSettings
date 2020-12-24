@@ -1,0 +1,26 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=41D720EAAD98D242B8154146CD2A0067/AbsolutePath/@EntryValue">C:\Files\Projects\be.stateless\PowerShell\BizTalk.Binding\.settings\CodeEditing.DotSettings</s:String>
+	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=41D720EAAD98D242B8154146CD2A0067/RelativePath/@EntryValue">..\.settings\CodeEditing.DotSettings</s:String>
+	<s:Boolean x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=41D720EAAD98D242B8154146CD2A0067/@KeyIndexDefined">True</s:Boolean>
+	<s:Boolean x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=5903D1C66240DF40900ECB3056ECD1F5/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=5903D1C66240DF40900ECB3056ECD1F5/AbsolutePath/@EntryValue">C:\Files\Projects\be.stateless\PowerShell\BizTalk.Binding\.settings\CodeEditing.FileHeader.DotSettings</s:String>
+	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=5903D1C66240DF40900ECB3056ECD1F5/RelativePath/@EntryValue">..\.settings\CodeEditing.FileHeader.DotSettings</s:String>
+	<s:Boolean x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=8ED5F00E8CE76D42B70F4A218C3AACFC/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=8ED5F00E8CE76D42B70F4A218C3AACFC/AbsolutePath/@EntryValue">C:\Files\Projects\be.stateless\PowerShell\BizTalk.Binding\.settings\CodeInspection.DotSettings</s:String>
+	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=8ED5F00E8CE76D42B70F4A218C3AACFC/RelativePath/@EntryValue">..\.settings\CodeInspection.DotSettings</s:String>
+	<s:Boolean x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=9B63F6F778148348812C612D9940468E/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=9B63F6F778148348812C612D9940468E/AbsolutePath/@EntryValue">C:\Files\Projects\be.stateless\PowerShell\BizTalk.Binding\.settings\PatternsAndTemplates.DotSettings</s:String>
+	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=9B63F6F778148348812C612D9940468E/RelativePath/@EntryValue">..\.settings\PatternsAndTemplates.DotSettings</s:String>
+	<s:Boolean x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=FA54ADF5A5044240A459032D97810930/@KeyIndexDefined">True</s:Boolean>
+	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=FA54ADF5A5044240A459032D97810930/AbsolutePath/@EntryValue">C:\Files\Projects\be.stateless\PowerShell\BizTalk.Binding\.settings\Environment.DotSettings</s:String>
+	<s:String x:Key="/Default/Environment/InjectedLayers/FileInjectedLayer/=FA54ADF5A5044240A459032D97810930/RelativePath/@EntryValue">..\.settings\Environment.DotSettings</s:String>
+	<s:Boolean x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=File41D720EAAD98D242B8154146CD2A0067/@KeyIndexDefined">True</s:Boolean>
+	<s:Double x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=File41D720EAAD98D242B8154146CD2A0067/RelativePriority/@EntryValue">1</s:Double>
+	<s:Boolean x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=File5903D1C66240DF40900ECB3056ECD1F5/@KeyIndexDefined">True</s:Boolean>
+	<s:Double x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=File5903D1C66240DF40900ECB3056ECD1F5/RelativePriority/@EntryValue">2</s:Double>
+	<s:Boolean x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=File8ED5F00E8CE76D42B70F4A218C3AACFC/@KeyIndexDefined">True</s:Boolean>
+	<s:Double x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=File8ED5F00E8CE76D42B70F4A218C3AACFC/RelativePriority/@EntryValue">2.5</s:Double>
+	<s:Boolean x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=File9B63F6F778148348812C612D9940468E/@KeyIndexDefined">True</s:Boolean>
+	<s:Double x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=File9B63F6F778148348812C612D9940468E/RelativePriority/@EntryValue">4</s:Double>
+	<s:Boolean x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=FileFA54ADF5A5044240A459032D97810930/@KeyIndexDefined">True</s:Boolean>
+	<s:Double x:Key="/Default/Environment/InjectedLayers/InjectedLayerCustomization/=FileFA54ADF5A5044240A459032D97810930/RelativePriority/@EntryValue">3</s:Double></wpf:ResourceDictionary>
