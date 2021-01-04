@@ -1,6 +1,6 @@
 ﻿#region Copyright & License
 
-// Copyright © 2012 - 2020 François Chabot
+// Copyright © 2012 - 2021 François Chabot
 // 
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -18,21 +18,18 @@
 
 using System;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using System.Management.Automation;
 using System.Reflection;
-using Be.Stateless.BizTalk.Dsl;
-using Be.Stateless.BizTalk.Dsl.Binding;
-using Be.Stateless.BizTalk.Extensions;
+using Be.Stateless.BizTalk.Install;
 using Be.Stateless.BizTalk.Install.Command;
 
 namespace Be.Stateless.BizTalk.Binding.CmdLets
 {
     public abstract class ApplicationBindingCmdletBase : Cmdlet
     {
-        protected internal ApplicationBindingCmdletBase(bool isApplicationBindingInstanceRequired)
+        protected internal ApplicationBindingCmdletBase(bool isApplicationBindingResolverRequired)
         {
-            _isApplicationBindingInstanceRequired = isApplicationBindingInstanceRequired;
+            _isApplicationBindingResolverRequired = isApplicationBindingResolverRequired;
         }
 
         #region Base Class Member Overrides
@@ -45,53 +42,56 @@ namespace Be.Stateless.BizTalk.Binding.CmdLets
 
         protected override void ProcessRecord()
         {
-            _bindingGenerationCommand.Execute(Console.WriteLine);
+            _bindingGenerationCommand.Execute(message => WriteInformation(message, new string[0]));
         }
 
         #endregion
 
         [Parameter]
         [SuppressMessage("ReSharper", "MemberCanBePrivate.Global", Justification = "CmdLet parameter")]
+        [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global", Justification = "CmdLet parameter")]
         public Type ApplicationSettingsOverrideType { get; set; }
 
         [Parameter]
         [SuppressMessage("ReSharper", "MemberCanBePrivate.Global", Justification = "CmdLet parameter")]
+        [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global", Justification = "CmdLet parameter")]
         public string[] AssemblyProbingPaths { get; set; }
 
         [Parameter(Mandatory = true)]
         [ValidateNotNullOrEmpty]
         [SuppressMessage("ReSharper", "MemberCanBePrivate.Global", Justification = "CmdLet parameter")]
+        [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global", Justification = "CmdLet parameter")]
         public string Environment { get; set; }
 
         [Parameter]
         [ValidateNotNullOrEmpty]
         [SuppressMessage("ReSharper", "MemberCanBePrivate.Global", Justification = "CmdLet parameter")]
+        [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global", Justification = "CmdLet parameter")]
         public string InputAssemblyFilePath { get; set; }
 
-        protected bool IsApplicationBindingInstanceDefined => _bindingGenerationCommand.ApplicationBinding != null;
+        protected bool IsApplicationBindingResolverDefined => _bindingGenerationCommand.ApplicationBindingResolver != null;
 
         private void ConfigureCommand()
         {
-            var applicationBinding = CreateApplicationBindingsInstance();
+            var applicationBindingResolver = CreateApplicationBindingResolver();
 
-            if (_isApplicationBindingInstanceRequired && applicationBinding == null)
-                throw new InvalidOperationException($"An instance of '{typeof(IApplicationBinding)}' is required.");
+            if (_isApplicationBindingResolverRequired && applicationBindingResolver == null)
+                throw new InvalidOperationException($"An instance of '{typeof(IApplicationBindingResolver)}' is required.");
 
-            _bindingGenerationCommand.ApplicationBinding = (IVisitable<IApplicationBindingVisitor>) applicationBinding;
+            _bindingGenerationCommand.ApplicationBindingResolver = CreateApplicationBindingResolver();
             _bindingGenerationCommand.AssemblyProbingPaths = AssemblyProbingPaths;
-            _bindingGenerationCommand.ApplicationSettingsOverrideType = ApplicationSettingsOverrideType;
+            _bindingGenerationCommand.ApplicationSettingOverrideType = ApplicationSettingsOverrideType;
             _bindingGenerationCommand.TargetEnvironment = Environment;
         }
 
-        protected virtual IApplicationBinding CreateApplicationBindingsInstance()
+        protected virtual IApplicationBindingResolver CreateApplicationBindingResolver()
         {
-            // Wil not fail here if no instance found - Will fail in configure command.
-            return Assembly.LoadFrom(InputAssemblyFilePath).CreateApplicationBindingsInstances().SingleOrDefault();
+            return new ApplicationBindingAssemblyResolver(Assembly.LoadFrom(InputAssemblyFilePath));
         }
 
         protected abstract ApplicationBindingGenerationCommand CreateApplicationBindingGenerationCommand();
 
-        private readonly bool _isApplicationBindingInstanceRequired;
+        private readonly bool _isApplicationBindingResolverRequired;
         private ApplicationBindingGenerationCommand _bindingGenerationCommand;
     }
 }
